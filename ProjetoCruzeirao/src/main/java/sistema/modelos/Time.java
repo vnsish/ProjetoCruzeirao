@@ -28,15 +28,41 @@ public class Time {
 	/**
 	 * Description of the property Inscricoes.
 	 */
-	public HashSet<Inscricao> Inscricoes = new HashSet<Inscricao>();
 	
-	// Start of user code (user defined attributes for Time)
+	class Endereco
+	{
+		private String End1;
+		private String End2;
+		private int CEP;
+		private int Tel;
+		public String getEnd1() {
+			return End1;
+		}
+		public void setEnd1(String end1) {
+			End1 = end1;
+		}
+		public String getEnd2() {
+			return End2;
+		}
+		public void setEnd2(String end2) {
+			End2 = end2;
+		}
+		public int getCEP() {
+			return CEP;
+		}
+		public void setCEP(int cEP) {
+			CEP = cEP;
+		}
+		public int getTel() {
+			return Tel;
+		}
+		public void setTel(int tel) {
+			Tel = tel;
+		}
 	
-	// End of user code
-	
-	/**
-	 * The constructor.
-	 */
+		
+	}
+
 	public Time() {
 		// Start of user code constructor for Time)
 		super();
@@ -78,12 +104,5 @@ public class Time {
 		this.ID = newID;
 	}
 
-	/**
-	 * Returns Inscricoes.
-	 * @return Inscricoes 
-	 */
-	public HashSet<Inscricao> getInscricoes() {
-		return this.Inscricoes;
-	}
 
 }

@@ -1,0 +1,41 @@
+<ui:composition template="../templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.org.cadastrolocal.title']}" />
+    </ui:define>
+	
+
+	<ui:define name="principal">
+	<h:form id="campeonato">
+	
+		<h1><p:outputLabel value="#{msg['pages.org.cadastrolocal.menu']}"/></h1>
+		
+		<p:panelGrid columns="2">
+			
+	 		<p:outputLabel value="#{msg['pages.org.cadastrolocal.name']}" />
+	 		<p:inputText value="" />
+	 		
+	 		<p:outputLabel  value="#{msg['pages.org.cadastrolocal.end1']}" />
+	 		<p:inputText value="" id="end1"/>
+	 		
+	 		<p:outputLabel value="#{msg['pages.org.cadastrolocal.end2']}" />
+	 		<p:inputText value="" id="end2"/>
+
+      <p:outputLabel value="#{msg['pages.org.cadastrolocal.tel']}" />
+      <p:inputMask mask="(99)9999-9999?9"/>	 		
+	 		
+	 		<p:button value="#{msg['general.confirmar']}"/>
+	 	</p:panelGrid>
+	 	
+	  <p:watermark for="end1" value="#{msg['pages.org.cadastrolocal.End1w']}"/>
+	  <p:watermark for="end2" value="#{msg['pages.org.cadastrolocal.End2w']}"/>
+	 </h:form>
+	</ui:define>
+</ui:composition>

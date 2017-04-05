@@ -1,0 +1,76 @@
+
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.partidas.title']}" />
+	</ui:define>
+	
+	<ui:define name="principal">
+	  
+	  <h1><p:outputLabel value="#{msg['pages.partidas.menu']}"/></h1>
+	  <p:outputPanel style="margin: 10px;">
+		<h:panelGrid colums="2">
+		<p:outputLabel value="#{msg['pages.partidas.select']}"/>
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Campeonato O" />
+ 			<f:selectItem itemLabel="Campeonato P" />
+		</p:selectOneMenu>
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Categoria A" />
+ 			<f:selectItem itemLabel="Categoria B" />
+		</p:selectOneMenu>
+		<p:selectOneMenu>
+ 			<f:selectItem itemLabel="Rodada 1" />
+ 			<f:selectItem itemLabel="Rodada 2" />
+		 	</p:selectOneMenu>
+	 	</h:panelGrid>
+	 	
+	 	<p:panelGrid style="margin: 10px">
+	 		<p:row>
+	 			<p:column colspan="4">Dia 01/01</p:column>
+	 		</p:row>
+	 		<p:row>
+	 			<p:column colspan="2">Hora: 00:00</p:column>
+	 			<p:column colspan="2">Local: X</p:column>
+	 		</p:row>
+	 		<p:row>
+	 			<p:column colspan="1">Mandante</p:column>
+	 			<p:column colspan="1">Time A</p:column>
+	 			<p:column colspan="1">Time B</p:column>
+	 			<p:column colspan="1">Visitante</p:column>
+	 		</p:row>
+	 	</p:panelGrid>
+
+	 	<p:panelGrid style="margin: 10px">
+	 		<p:row>
+	 			<p:column colspan="4">Dia 01/01</p:column>
+	 		</p:row>
+	 		<p:row>
+	 			<p:column colspan="2">Hora: 12:00</p:column>
+	 			<p:column colspan="2">Local: Y</p:column>	
+	 		</p:row>
+	 		<p:row>
+	 			<p:column colspan="1">Mandante</p:column>
+	 			<p:column colspan="1">Time C</p:column>
+	 			<p:column colspan="1">Time D</p:column>
+	 			<p:column colspan="1">Visitante</p:column>
+	 		</p:row>
+	 	</p:panelGrid>
+	   </p:outputPanel>
+	   
+	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

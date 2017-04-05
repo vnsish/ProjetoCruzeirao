@@ -5,18 +5,36 @@
 	xmlns:p="http://primefaces.org/ui">
 	<h:form>
 		<p:menubar>
-		    <p:submenu label="#{msg['pages.comuns.menuLateral.inicio']}" >
-			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="inicio.xhtml" />
+		    <p:submenu label="#{msg['pages.comuns.menuSuperior.inicio']}" >
+			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="${pageContext.request.contextPath}/pages/inicio.xhtml" />
 			</p:submenu>
 		
-			<p:submenu label="#{msg['pages.comuns.menuLateral.gerencial']}">
-				<p:menuitem value="#{msg['pages.cadastroUsuario.menu']}" url="cadastroUsuario.xhtml" />
-				<p:menuitem value="#{msg['pages.tela2.menu']}" url="tela2.xhtml" />
-				<p:menuitem value="#{msg['pages.tela3.menu']}" url="tela3.xhtml" />
+			<p:submenu label="#{msg['pages.comuns.menuSuperior.login']}">
+				<p:menuitem value="#{msg['pages.login.menu']}" url="${pageContext.request.contextPath}/pages/login.xhtml" />
+				<p:menuitem value="#{msg['pages.cadastroUsuario.menu']}" url="${pageContext.request.contextPath}/pages/cadastroUsuario.xhtml" />
 	       </p:submenu>
-					
-			<p:submenu label="#{msg['pages.comuns.menuLateral.options']}">
-				<p:menuitem value="#{msg['pages.linguagem.menu']}" url="linguagem.xhtml" />
+	       
+	       <p:submenu label="#{msg['pages.comuns.menuSuperior.menuUser']}">
+				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="${pageContext.request.contextPath}/pages/cadastroTime.xhtml" />
+				<p:menuitem value="#{msg['pages.partidas.menu']}" url="${pageContext.request.contextPath}/pages/partidas.xhtml" />
+				<p:menuitem value="#{msg['pages.efetuarinscricao.menu']}" url="${pageContext.request.contextPath}/pages/efetuarinscricao.xhtml" />
+				<p:menuitem value="#{msg['pages.confirmainscricao.menu']}" url="${pageContext.request.contextPath}/pages/confirmainscricao.xhtml" />
+	       </p:submenu>
+	       
+	       
+	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ORG']}">
+				<p:menuitem value="#{msg['pages.org.novocampeonato.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novocampeonato.xhtml" />
+				<p:menuitem value="#{msg['pages.org.novacategoria.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novacategoria.xhtml" />
+				<p:menuitem value="#{msg['pages.org.cadastrolocal.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novolocal.xhtml" />
+				<p:menuitem value="#{msg['pages.org.inserirresultado.menu']}" url="${pageContext.request.contextPath}/pages/ORG/inserirresultado.xhtml" />
+	       </p:submenu>
+	       
+	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ADM']}">
+				<p:menuitem value="#{msg['pages.adm.altera.menu']}" url="${pageContext.request.contextPath}/pages/ADM/alterarusuario.xhtml" />
+	       </p:submenu>
+	       
+			<p:submenu label="#{msg['pages.comuns.menuSuperior.options']}">
+				<p:menuitem value="#{msg['pages.linguagem.menu']}" url="${pageContext.request.contextPath}/pages/linguagem.xhtml" />
 	       </p:submenu>
 		
 		</p:menubar>

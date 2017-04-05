@@ -18,6 +18,16 @@
 		<h1><p:outputLabel value="#{msg['pages.org.novacategoria.menu']}"/></h1>
 		
 		<p:panelGrid columns="2">
+			<p:outputLabel value="#{msg['pages.org.novacategoria.camp']}" />
+	 		<p:selectOneMenu>
+	 			<f:selectItem itemLabel="Campeonato 1" />
+	 			<f:selectItem itemLabel="Campeonato 2" />
+	 		</p:selectOneMenu>
+	 		<p:outputLabel value="#{msg['pages.org.novacategoria.genero']}" />
+	 		<p:selectOneRadio id = "selectgenero">
+	 			<f:selectItem itemLabel = "Masculino" />
+	 			<f:selectItem itemLabel = "Feminino" />
+	 		</p:selectOneRadio>
 	 		<p:outputLabel for="name" value="#{msg['pages.org.novacategoria.name']}" />
 	 		<p:inputText id="name" value="" />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.inicio']}" />
@@ -25,7 +35,7 @@
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.termino']}" />
 	 		<p:calendar />
 	 		
-	 		<p:button />
+	 		<p:button value="#{msg['general.confirmar']}"/>
 	 	</p:panelGrid>
 	 </h:form>
 	</ui:define>
