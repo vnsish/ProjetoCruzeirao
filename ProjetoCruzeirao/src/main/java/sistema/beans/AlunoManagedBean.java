@@ -1,7 +1,7 @@
 package sistema.beans;
 
+import java.util.Date;
 import java.util.List;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import sistema.modelos.Aluno;
@@ -13,6 +13,8 @@ public class AlunoManagedBean {
 	
 	private Aluno aluno = new Aluno();
 	private AlunoService service = new AlunoService();
+	public Date date1;
+	public Date date2;
 	
 	
 	public void salvar()
