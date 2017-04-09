@@ -8,7 +8,7 @@
 >
 	
 	<ui:define name="title">
-		<h:outputText value="#{msg['pages.org.novoacategoria.title']}" />
+		<h:outputText value="#{msg['pages.org.novacategoria.title']}" />
     </ui:define>
 	
 
@@ -28,8 +28,14 @@
 	 			<f:selectItem itemLabel = "Masculino" />
 	 			<f:selectItem itemLabel = "Feminino" />
 	 		</p:selectOneRadio>
-	 		<p:outputLabel for="name" value="#{msg['pages.org.novacategoria.name']}" />
-	 		<p:inputText id="name" value="" />
+	 		<p:outputLabel value="#{msg['pages.org.novacategoria.name']}" />
+	 		<p:inputText />
+	 		<p:outputLabel value="#{msg['pages.org.novacategoria.idade']}" />
+	 		<p:inputText value="" />
+	 		<p:outputLabel value="#{msg['pages.org.novacategoria.jogmin']}" />
+	 		<p:inputText value="" />
+	 		<p:outputLabel value="#{msg['pages.org.novacategoria.jogmax']}" />
+	 		<p:inputText value="" />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.inicio']}" />
 	 		<p:calendar />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.termino']}" />

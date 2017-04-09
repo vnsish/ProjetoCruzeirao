@@ -17,16 +17,6 @@ import java.util.HashSet;
  */
 public class Partida {
 	/**
-	 * Description of the property categorias.
-	 */
-	public HashSet<Categoria> categorias = new HashSet<Categoria>();
-
-	/**
-	 * Description of the property inscricaos.
-	 */
-	public HashSet<Inscricao>inscricaos=new HashSet<Inscricao>();
-
-	/**
 	 * Description of the property ID.
 	 */
 	private Integer ID = Integer.valueOf(0);
@@ -69,23 +59,52 @@ public class Partida {
 		// End of user code
 	}
 
-	// Start of user code (user defined methods for Partida)
+	private int PlacarTimeA;
+	private int PlacarTimeB;
+	private int PlacarPenaltiA;
+	private int PlacarPenaltiB;
+	private Partida ProximaPartida;
+	
+	
 
-	// End of user code
-	/**
-	 * Returns categorias.
-	 * @return categorias 
-	 */
-	public HashSet<Categoria> getCategorias() {
-		return this.categorias;
+	public int getPlacarTimeA() {
+		return PlacarTimeA;
 	}
 
-	/**
-	 * Returns inscricaos.
-	 * @return inscricaos 
-	 */
-	public HashSet<Inscricao> getInscricaos() {
-		return this.inscricaos;
+	public void setPlacarTimeA(int placarTimeA) {
+		PlacarTimeA = placarTimeA;
+	}
+
+	public int getPlacarTimeB() {
+		return PlacarTimeB;
+	}
+
+	public void setPlacarTimeB(int placarTimeB) {
+		PlacarTimeB = placarTimeB;
+	}
+
+	public int getPlacarPenaltiA() {
+		return PlacarPenaltiA;
+	}
+
+	public void setPlacarPenaltiA(int placarPenaltiA) {
+		PlacarPenaltiA = placarPenaltiA;
+	}
+
+	public int getPlacarPenaltiB() {
+		return PlacarPenaltiB;
+	}
+
+	public void setPlacarPenaltiB(int placarPenaltiB) {
+		PlacarPenaltiB = placarPenaltiB;
+	}
+
+	public Partida getProximaPartida() {
+		return ProximaPartida;
+	}
+
+	public void setProximaPartida(Partida proximaPartida) {
+		ProximaPartida = proximaPartida;
 	}
 
 	/**

@@ -73,13 +73,33 @@ public class Categoria {
 	 * @param ins 
 	 */
 	public void AddInscricao(Inscricao ins) {
-		// Start of user code for method AddInscricao
-		// End of user code
+		
+		Inscricoes.add(ins);
+		
 	}
 
-	// Start of user code (user defined methods for Categoria)
 
-	// End of user code
+	private int JogadoresMin;
+	private int JogadoresMax;
+	
+	
+	public int getJogadoresMin() {
+		return JogadoresMin;
+	}
+
+	public void setJogadoresMin(int jogadoresMin) {
+		JogadoresMin = jogadoresMin;
+	}
+
+	public int getJogadoresMax() {
+		return JogadoresMax;
+	}
+
+	public void setJogadoresMax(int jogadoresMax) {
+		JogadoresMax = jogadoresMax;
+	}
+
+	
 	/**
 	 * Returns IdadeMinima.
 	 * @return IdadeMinima 
@@ -146,7 +166,6 @@ public class Categoria {
 	}
 
 
-
 	/**
 	 * Returns ID.
 	 * @return ID 
@@ -178,5 +197,6 @@ public class Categoria {
 	public void setEnableInscr(Boolean newEnableInscr) {
 		this.EnableInscr = newEnableInscr;
 	}
+	
 
 }

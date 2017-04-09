@@ -69,9 +69,18 @@ public class Time {
 		// End of user code
 	}
 
-	// Start of user code (user defined methods for Time)
+	private Usuario Diretor;
+	
+		
+	
+	public Usuario getDiretor() {
+		return Diretor;
+	}
 
-	// End of user code
+	public void setDiretor(Usuario diretor) {
+		Diretor = diretor;
+	}
+
 	/**
 	 * Returns Nome.
 	 * @return Nome 

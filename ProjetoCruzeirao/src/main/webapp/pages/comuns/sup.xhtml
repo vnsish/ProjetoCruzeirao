@@ -4,6 +4,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	<h:form>
+	<p:graphicImage 
+					    library="sistema" 
+						name="imagens/cruzeirao.png"
+						alt="#{msg['pages.comuns.cabecalho.img.alt']}" 
+						title="#{msg['pages.comuns.cabecalho.img.title']}" />
 		<p:menubar>
 		    <p:submenu label="#{msg['pages.comuns.menuSuperior.inicio']}" >
 			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="${pageContext.request.contextPath}/pages/inicio.xhtml" />

@@ -28,8 +28,10 @@
       <p:outputLabel value="Time ABC" />
 
       </p:panelGrid>
-	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" />
-	         
+      <p:panelGrid columns="2" style="border: none;">
+	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" /> 
+	  <p:commandButton value="#{msg['pages.confirmainscricao.recusar']}" style="margin-top: 10px;" />
+	  </p:panelGrid>
 
 	</ui:define>
 </ui:composition>

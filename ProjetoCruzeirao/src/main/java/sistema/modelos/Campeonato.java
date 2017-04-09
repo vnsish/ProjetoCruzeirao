@@ -51,10 +51,6 @@ public class Campeonato {
 	 */
 	private Date DataInicio = null;
 
-	// Start of user code (user defined attributes for Campeonato)
-
-	// End of user code
-
 	/**
 	 * The constructor.
 	 */
