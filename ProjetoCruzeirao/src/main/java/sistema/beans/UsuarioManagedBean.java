@@ -14,8 +14,9 @@ public class UsuarioManagedBean {
 	private List<Usuario> usuarios;
 	private UsuarioService service = new UsuarioService();
 	
-	public void Salvar(Usuario usuario)
+	public void Salvar()
 	{
+		usuario.getRoles().add("user");
 		service.Salvar(usuario);
 		
 		if(usuarios != null)

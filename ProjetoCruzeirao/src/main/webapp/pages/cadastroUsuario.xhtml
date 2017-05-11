@@ -18,22 +18,25 @@
 	  <h1><p:outputLabel value="#{msg['pages.cadastroUsuario.menu']}"/></h1>
 	  
 	  <h:form id="formUsuario">	
-	  <p:panelGrid columns="2">
-      <p:outputLabel value="#{msg['pages.cadastroUsuario.CPF']}" required="true" />
-      <p:inputText value="#{usuarioManagedBean.usuario.CPF}" />
+	  <p:panelGrid columns="2" id="gridUser">
+      <p:outputLabel value="#{msg['pages.cadastroUsuario.CPF']}" />
+      <p:inputMask value="#{usuarioManagedBean.usuario.CPF}" mask="999.999.999-99" required="true"/>
+      <p:outputLabel value="#{msg['pages.cadastroUsuario.Nascimento']}" />
+      <p:calendar id="inputNasc" pattern="dd/mm/yyyy" mask="true" value="#{usuarioManagedBean.usuario.dataNascimento}"/>
       <p:outputLabel value="#{msg['pages.cadastroUsuario.Nome']}" />
-      <p:inputText value="#{usuarioManagedBean.usuario.nome}" />
+      <p:inputText value="#{usuarioManagedBean.usuario.nome}" required="true" />
       <p:outputLabel value="#{msg['pages.cadastroUsuario.Email']}" />
-      <p:inputText value="#{usuarioManagedBean.usuario.email}" />
+      <p:inputText value="#{usuarioManagedBean.usuario.email}" >
+      <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+      </p:inputText>
       <p:outputLabel value="#{msg['pages.cadastroUsuario.Senha']}" />
-      <p:password value="#{usuarioManagedBean.usuario.senha}" />
+      <p:password id="pwd1" match="pwd2" value="#{usuarioManagedBean.usuario.senha}" />
       <p:outputLabel value="#{msg['pages.cadastroUsuario.ConfirmSenha']}" />
-      <p:password value="" />
+      <p:password id="pwd2" value="#{usuarioManagedBean.usuario.senha}"/>
 	  </p:panelGrid>
-	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" action="usuarioManagedBean.Salvar" />
-	         
-
-	                 
+	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" update="gridUser" validateClient="true" action="#{usuarioManagedBean.Salvar}" />
+               
+      <p:watermark for="inputNasc" value="#{msg['pages.cadastroUsuario.Nascimentow']}" ></p:watermark>
        </h:form>
 	   
 	</ui:define>

@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,13 +38,14 @@ public class Usuario
 	}
 	
 	@Id
-	private Integer CPF = Integer.valueOf(0);
+	private String CPF = "";
 	private List<String> Roles;
 	private Date DataNascimento = null;
 
 	public Usuario() {
 		// Start of user code constructor for Usuario)
 		super();
+		Roles = new ArrayList<String>();
 		// End of user code
 	}
 
@@ -55,11 +57,11 @@ public class Usuario
 		this.Email = newEmail;
 	}
 
-	public Integer getCPF() {
+	public String getCPF() {
 		return this.CPF;
 	}
 
-	public void setCPF(Integer newCPF) {
+	public void setCPF(String newCPF) {
 		this.CPF = newCPF;
 	}
 

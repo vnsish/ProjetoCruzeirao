@@ -12,6 +12,7 @@ public class UsuarioService extends Service {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 			em.persist(u);
+			System.out.println("p");
 		em.getTransaction().commit();
 		em.close();
 	}
