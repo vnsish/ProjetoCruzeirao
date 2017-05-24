@@ -1,5 +1,6 @@
 package sistema.beans;
 
+import sistema.modelos.Roles;
 import sistema.modelos.Usuario;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -16,7 +17,7 @@ public class UsuarioManagedBean {
 	
 	public void Salvar()
 	{
-		usuario.getRoles().add("user");
+		usuario.setRole(Roles.USR);
 		service.Salvar(usuario);
 		
 		if(usuarios != null)

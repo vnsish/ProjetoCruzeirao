@@ -17,15 +17,15 @@
 	  
 	  <h1><p:outputLabel value="#{msg['pages.login.menu']}"/></h1>
 	  
-	  <h:form id="formLogin">	
+	  <h:form id="login" prependId="false">	
 	  
-	  <p:panelGrid columns="2">
-      <p:outputLabel value="#{msg['pages.login.CPF']}" required="true" />
-      <p:inputText value="" />
-      <p:outputLabel value="#{msg['pages.login.Senha']}" />
-      <p:password value="" />
-	  </p:panelGrid>
-	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" />
+		  <p:panelGrid columns="2">
+		      <p:outputLabel value="#{msg['pages.login.CPF']}" required="true" />
+		      <p:inputMask mask="999.999.999-99" id="cpf" />
+		      <p:outputLabel value="#{msg['pages.login.Senha']}" />
+		      <p:password id="password" />
+		  </p:panelGrid>
+		  <p:commandButton value="#{msg['general.confirmar']}" ajax="false" style="margin-top: 10px;" />
 	         
 
 	                 

@@ -9,7 +9,9 @@
 						name="imagens/cruzeirao.png"
 						alt="#{msg['pages.comuns.cabecalho.img.alt']}" 
 						title="#{msg['pages.comuns.cabecalho.img.title']}" />
-		<p:menubar>
+						
+	<p:button outcome="login" icon="fa-sign-in" value="Login" style="float: right" />
+		<p:menubar>	
 		    <p:submenu label="#{msg['pages.comuns.menuSuperior.inicio']}" >
 			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="${pageContext.request.contextPath}/pages/inicio.xhtml" />
 			</p:submenu>
@@ -19,7 +21,7 @@
 				<p:menuitem value="#{msg['pages.cadastroUsuario.menu']}" url="${pageContext.request.contextPath}/pages/cadastroUsuario.xhtml" />
 	       </p:submenu>
 	       
-	       <p:submenu label="#{msg['pages.comuns.menuSuperior.menuUser']}">
+	       <p:submenu label="#{msg['pages.comuns.menuSuperior.menuUser']}" rendered="#{request.isUserInRole('USR')}">
 				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="${pageContext.request.contextPath}/pages/cadastroTime.xhtml" />
 				<p:menuitem value="#{msg['pages.partidas.menu']}" url="${pageContext.request.contextPath}/pages/partidas.xhtml" />
 				<p:menuitem value="#{msg['pages.efetuarinscricao.menu']}" url="${pageContext.request.contextPath}/pages/efetuarinscricao.xhtml" />
@@ -27,14 +29,14 @@
 	       </p:submenu>
 	       
 	       
-	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ORG']}">
+	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ORG']}" rendered="#{request.isUserInRole('ORG')}">
 				<p:menuitem value="#{msg['pages.org.novocampeonato.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novocampeonato.xhtml" />
 				<p:menuitem value="#{msg['pages.org.novacategoria.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novacategoria.xhtml" />
 				<p:menuitem value="#{msg['pages.org.cadastrolocal.menu']}" url="${pageContext.request.contextPath}/pages/ORG/novolocal.xhtml" />
 				<p:menuitem value="#{msg['pages.org.inserirresultado.menu']}" url="${pageContext.request.contextPath}/pages/ORG/inserirresultado.xhtml" />
 	       </p:submenu>
 	       
-	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ADM']}">
+	       	<p:submenu label="#{msg['pages.comuns.menuSuperior.ADM']}" rendered="#{request.isUserInRole('ADM')}">
 				<p:menuitem value="#{msg['pages.adm.altera.menu']}" url="${pageContext.request.contextPath}/pages/ADM/alterarusuario.xhtml" />
 	       </p:submenu>
 	       

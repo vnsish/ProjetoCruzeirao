@@ -29,14 +29,22 @@
     .ui-layout-north .ui-layout-unit-content {
         overflow:visible !important;
     }
+    
+    	.ui-layout-container{
+    	 border-radius: 5px !important;
+    	 border: 1px black solid !important;
+    	 width: 900px !important;
+  		 margin: auto !important;
+    	 display: block;
+    	}
 	    </style>
 	</h:head>
 
 	<h:body>
 
+	<div id="wrapper">
 
-
-		<p:layout id="globalLayout" fullPage="true">
+		<p:layout id="globalLayout" fullPage="true" style="width: 600px;">
 	<!-- 
 			<p:layoutUnit position="north" size="200" >
 				<ui:include src="comuns/cabecalho.xhtml" />
@@ -59,6 +67,7 @@
 			</p:layoutUnit>
 		</p:layout>
 
+	</div>
 	</h:body>
 </f:view>
 </h:html>

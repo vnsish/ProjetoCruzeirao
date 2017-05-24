@@ -1,5 +1,6 @@
 package sistema.modelos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,19 +9,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 // Start of user code (user defined imports)
 import javax.persistence.Table;
 
 // End of user code
 
 
+@NamedQuery (name = "Usuario.procurarPorCPF", query = "select u from Usuario u where u.CPF = :CPF")
 @Entity
-public class Usuario
+public class Usuario implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5700336660670490930L;
+	
 	private String Email = "";
 	private String Nome = "";
 	private String Senha = "";
 
+	public static final String PesquisarPorCPF = "Usuario.procurarPorCPF";
+	
 	public String getNome() {
 		return Nome;
 	}
@@ -39,13 +49,12 @@ public class Usuario
 	
 	@Id
 	private String CPF = "";
-	private List<String> Roles;
+	private Roles Role;
 	private Date DataNascimento = null;
 
 	public Usuario() {
 		// Start of user code constructor for Usuario)
 		super();
-		Roles = new ArrayList<String>();
 		// End of user code
 	}
 
@@ -65,10 +74,14 @@ public class Usuario
 		this.CPF = newCPF;
 	}
 
-	public List<String> getRoles() {
-		return this.Roles;
+	public Roles getRole() {
+		return this.Role;
 	}
 
+	public void setRole(Roles Role)
+	{
+		this.Role = Role;
+	}
 	
 	
 	public Date getDataNascimento() {
