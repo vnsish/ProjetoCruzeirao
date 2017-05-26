@@ -4,6 +4,9 @@ import sistema.modelos.Roles;
 import sistema.modelos.Usuario;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import java.util.List;
 import sistema.service.UsuarioService;
 
@@ -18,7 +21,9 @@ public class UsuarioManagedBean {
 	public void Salvar()
 	{
 		usuario.setRole(Roles.USR);
-		service.Salvar(usuario);
+		service.salvar(usuario);
+		
+		
 		
 		if(usuarios != null)
 			usuarios.add(usuario);

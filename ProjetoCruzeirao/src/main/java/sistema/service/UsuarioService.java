@@ -14,7 +14,7 @@ public class UsuarioService extends Service<Usuario> {
 	
 	
 	
-	public void Salvar(Usuario u)
+	/*public void Salvar(Usuario u)
 	{
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -22,7 +22,7 @@ public class UsuarioService extends Service<Usuario> {
 			System.out.println("p");
 		em.getTransaction().commit();
 		em.close();
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	public List<Usuario> getUsuarios()
@@ -38,6 +38,10 @@ public class UsuarioService extends Service<Usuario> {
 		return usuarios;
 	}
 	
+	public void atualizar(Usuario u)
+	{
+		em.merge(u);
+	}
 	
 	public Usuario getByCPF(String cpf)
 	{

@@ -1,6 +1,8 @@
 package sistema.modelos;
 import java.util.HashSet;
 
+import javax.persistence.ManyToOne;
+
 /*******************************************************************************
  * 2017, All rights reserved.
  *******************************************************************************/
@@ -68,7 +70,8 @@ public class Time {
 		super();
 		// End of user code
 	}
-
+	
+	
 	private Usuario Diretor;
 	
 		

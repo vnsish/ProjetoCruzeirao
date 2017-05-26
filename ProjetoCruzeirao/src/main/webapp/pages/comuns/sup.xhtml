@@ -2,7 +2,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:sec="http://www.springframework.org/security/tags">
 	<h:form>
 	<p:graphicImage 
 					    library="sistema" 
@@ -10,7 +11,12 @@
 						alt="#{msg['pages.comuns.cabecalho.img.alt']}" 
 						title="#{msg['pages.comuns.cabecalho.img.title']}" />
 						
-	<p:button outcome="login" icon="fa-sign-in" value="Login" style="float: right" />
+	<sec:authorize access="isAnonymous()">					
+	<p:button outcome="/pages/login" icon="fa-sign-in" value="Login" style="float: right" />
+	</sec:authorize>
+	<sec:authorize access="isAuthenticated()">					
+	<p:button href="/logout" icon="fa-sign-in" value="Logout" style="float: right" />
+	</sec:authorize>
 		<p:menubar>	
 		    <p:submenu label="#{msg['pages.comuns.menuSuperior.inicio']}" >
 			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="${pageContext.request.contextPath}/pages/inicio.xhtml" />
