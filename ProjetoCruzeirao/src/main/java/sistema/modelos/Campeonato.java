@@ -1,6 +1,13 @@
 package sistema.modelos;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /*******************************************************************************
  * 2017, All rights reserved.
@@ -15,7 +22,13 @@ import java.util.HashSet;
  * 
  * @author v
  */
+@Entity
 public class Campeonato {
+	
+	public Campeonato()
+	{
+		Categorias = new ArrayList<Categoria>();
+	}
 	/**
 	 * Description of the property CadastroTermino.
 	 */
@@ -24,7 +37,8 @@ public class Campeonato {
 	/**
 	 * Description of the property Categorias.
 	 */
-	public HashSet<Categoria> Categorias = new HashSet<Categoria>();
+	@OneToMany(mappedBy="Campeonato")
+	public List<Categoria> Categorias;
 
 	/**
 	 * Description of the property CadastroInicio.
@@ -39,6 +53,8 @@ public class Campeonato {
 	/**
 	 * Description of the property ID.
 	 */
+	@Id
+	@GeneratedValue
 	private Integer ID = Integer.valueOf(0);
 
 	/**
@@ -51,14 +67,6 @@ public class Campeonato {
 	 */
 	private Date DataInicio = null;
 
-	/**
-	 * The constructor.
-	 */
-	public Campeonato() {
-		// Start of user code constructor for Campeonato)
-		super();
-		// End of user code
-	}
 
 	// Start of user code (user defined methods for Campeonato)
 
@@ -69,6 +77,16 @@ public class Campeonato {
 	 */
 	public Date getCadastroTermino() {
 		return this.CadastroTermino;
+	}
+	
+	private String Nome;
+	
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
 	}
 
 	/**
@@ -83,7 +101,7 @@ public class Campeonato {
 	 * Returns Categorias.
 	 * @return Categorias 
 	 */
-	public HashSet<Categoria> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return this.Categorias;
 	}
 

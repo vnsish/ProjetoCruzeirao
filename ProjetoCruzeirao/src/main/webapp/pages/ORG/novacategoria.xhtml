@@ -19,29 +19,28 @@
 		
 		<p:panelGrid columns="2">
 			<p:outputLabel value="#{msg['pages.org.novacategoria.camp']}" />
-	 		<p:selectOneMenu>
-	 			<f:selectItem itemLabel="Campeonato 1" />
-	 			<f:selectItem itemLabel="Campeonato 2" />
+	 		<p:selectOneMenu value="#{categoriaBean.campeonato}">
+	 			<f:selectItems value="#{categoriaBean.getCampeonatos}"/>
 	 		</p:selectOneMenu>
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.genero']}" />
-	 		<p:selectOneRadio id = "selectgenero">
+	 		<!-- <p:selectOneRadio id = "selectgenero">
 	 			<f:selectItem itemLabel = "Masculino" />
 	 			<f:selectItem itemLabel = "Feminino" />
-	 		</p:selectOneRadio>
+	 		</p:selectOneRadio> --> 
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.name']}" />
-	 		<p:inputText />
+	 		<p:inputText value="#{categoriaBean.categoria.nome}"/>
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.idade']}" />
-	 		<p:inputText value="" />
+	 		<p:inputText value="#{categoriaBean.categoria.idadeMinima}" />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.jogmin']}" />
-	 		<p:inputText value="" />
+	 		<p:inputText value="#{categoriaBean.categoria.jogadoresMin}" />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.jogmax']}" />
-	 		<p:inputText value="" />
+	 		<p:inputText value="#{categoriaBean.categoria.jogadoresMax}" />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.inicio']}" />
 	 		<p:calendar />
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.termino']}" />
 	 		<p:calendar />
 	 		
-	 		<p:button value="#{msg['general.confirmar']}"/>
+	 		<p:button value="#{msg['general.confirmar']}" action="#{categoriaBean.Salvar}"/>
 	 	</p:panelGrid>
 	 </h:form>
 	</ui:define>

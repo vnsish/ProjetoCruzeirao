@@ -2,6 +2,12 @@ package sistema.modelos;
 import java.util.Date;
 import java.util.HashSet;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 /*******************************************************************************
  * 2017, All rights reserved.
  *******************************************************************************/
@@ -15,15 +21,19 @@ import java.util.HashSet;
  * 
  * @author v
  */
+@Entity
 public class Partida {
 	/**
 	 * Description of the property ID.
 	 */
-	private Integer ID = Integer.valueOf(0);
+	@Id
+	@GeneratedValue
+	private Integer ID;
 
 	/**
 	 * Description of the property TimeA.
 	 */
+	@ManyToOne
 	private Inscricao TimeA = null;
 
 	/**
@@ -39,6 +49,7 @@ public class Partida {
 	/**
 	 * Description of the property TimeB.
 	 */
+	@ManyToOne
 	private Inscricao TimeB = null;
 
 	/**
@@ -127,6 +138,7 @@ public class Partida {
 	 * Returns TimeA.
 	 * @return TimeA 
 	 */
+	
 	public Inscricao getTimeA() {
 		return this.TimeA;
 	}

@@ -25,6 +25,7 @@ public abstract class Service<T> {
 	public void salvar(T entidade) {
 		em.getTransaction().begin();
 			em.persist(entidade);
+			System.out.println("persistindo " + entidade.getClass());
 		em.getTransaction().commit();
 	}
 	

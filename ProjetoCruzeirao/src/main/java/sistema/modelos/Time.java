@@ -1,6 +1,9 @@
 package sistema.modelos;
 import java.util.HashSet;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /*******************************************************************************
@@ -16,6 +19,7 @@ import javax.persistence.ManyToOne;
  * 
  * @author v
  */
+@Entity
 public class Time {
 	/**
 	 * Description of the property Nome.
@@ -25,18 +29,20 @@ public class Time {
 	/**
 	 * Description of the property ID.
 	 */
+	@Id
 	private Integer ID = Integer.valueOf(0);
 
 	/**
 	 * Description of the property Inscricoes.
 	 */
 	
-	class Endereco
+	@Embeddable
+	public static class Endereco
 	{
 		private String End1;
 		private String End2;
-		private int CEP;
-		private int Tel;
+		private String CEP;
+		private String Tel;
 		public String getEnd1() {
 			return End1;
 		}
@@ -49,29 +55,41 @@ public class Time {
 		public void setEnd2(String end2) {
 			End2 = end2;
 		}
-		public int getCEP() {
+		public String getCEP() {
 			return CEP;
 		}
-		public void setCEP(int cEP) {
+		public void setCEP(String cEP) {
 			CEP = cEP;
 		}
-		public int getTel() {
+		public String getTel() {
 			return Tel;
 		}
-		public void setTel(int tel) {
+		public void setTel(String tel) {
 			Tel = tel;
 		}
-	
 		
+		
+	}
+	
+	Endereco end;
+	
+	public Endereco getEnd() {
+		return end;
+	}
+
+	public void setEnd(Endereco end) {
+		this.end = end;
 	}
 
 	public Time() {
 		// Start of user code constructor for Time)
 		super();
+		end = new Endereco();
 		// End of user code
 	}
 	
 	
+	@ManyToOne
 	private Usuario Diretor;
 	
 		

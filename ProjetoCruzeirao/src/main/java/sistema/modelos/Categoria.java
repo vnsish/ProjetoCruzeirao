@@ -3,7 +3,18 @@ package sistema.modelos;
  * 2017, All rights reserved.
  *******************************************************************************/
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 // Start of user code (user defined imports)
 
 // End of user code
@@ -13,6 +24,7 @@ import java.util.HashSet;
  * 
  * @author v
  */
+@Entity
 public class Categoria {
 	/**
 	 * Description of the property IdadeMinima.
@@ -22,13 +34,13 @@ public class Categoria {
 	/**
 	 * Description of the property Inscricoes.
 	 */
-	private HashSet<Inscricao>Inscricoes=new HashSet<Inscricao>();
+	private List<Inscricao> Inscricoes;
 
 	/**
 	/**
 	 * Description of the property partidas.
 	 */
-	public HashSet<Partida> partidas = new HashSet<Partida>();
+	public List<Partida> partidas;
 
 	/**
 	 * Description of the property Genero.
@@ -38,17 +50,21 @@ public class Categoria {
 	/**
 	 * Description of the property Campeonato.
 	 */
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Camp_ID")
 	public Campeonato Campeonato = null;
 
 	/**
 	 * Description of the property Partidas.
 	 */
-	private HashSet<Partida> Partidas = new HashSet<Partida>();
+	private List<Partida> Partidas;
 
 	/**
 	 * Description of the property ID.
 	 */
-	private Integer ID = Integer.valueOf(0);
+	@Id
+	@GeneratedValue
+	private Integer ID;
 
 	/**
 	 * Description of the property EnableInscr.
@@ -63,9 +79,8 @@ public class Categoria {
 	 * The constructor.
 	 */
 	public Categoria() {
-		// Start of user code constructor for Categoria)
-		super();
-		// End of user code
+		partidas = new ArrayList<Partida>();
+		Inscricoes = new ArrayList<Inscricao>();
 	}
 
 	/**
@@ -94,12 +109,22 @@ public class Categoria {
 	public int getJogadoresMax() {
 		return JogadoresMax;
 	}
-
+	
 	public void setJogadoresMax(int jogadoresMax) {
 		JogadoresMax = jogadoresMax;
 	}
 
+	private String Nome;
 	
+	
+	public String getNome() {
+		return Nome;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
 	/**
 	 * Returns IdadeMinima.
 	 * @return IdadeMinima 
@@ -120,7 +145,8 @@ public class Categoria {
 	 * Returns Inscricoes.
 	 * @return Inscricoes 
 	 */
-	public HashSet<Inscricao> getInscricoes() {
+	@OneToMany(mappedBy="Categoria")
+	public List<Inscricao> getInscricoes() {
 		return this.Inscricoes;
 	}
 
@@ -129,7 +155,7 @@ public class Categoria {
 	 * Returns partidas.
 	 * @return partidas 
 	 */
-	public HashSet<Partida> getPartidas() {
+	public List<Partida> getPartidas() {
 		return this.partidas;
 	}
 
@@ -174,19 +200,12 @@ public class Categoria {
 		return this.ID;
 	}
 
-	/**
-	 * Sets a value to attribute ID. 
-	 * @param newID 
-	 */
-	public void setID(Integer newID) {
-		this.ID = newID;
-	}
 
 	/**
 	 * Returns EnableInscr.
 	 * @return EnableInscr 
 	 */
-	public Boolean getEnableInscr() {
+	public Boolean isEnableInscr() {
 		return this.EnableInscr;
 	}
 

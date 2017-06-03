@@ -18,19 +18,19 @@
 	  <h1><p:outputLabel value="#{msg['pages.cadastroTime.menu']}"/></h1>
 	  
 	  <h:form id="formTime">	
-	  <p:panelGrid columns="2">
+	  <p:panelGrid id="gridTime" columns="2">
       <p:outputLabel value="#{msg['pages.cadastroTime.Nome']}" required="true" />
-      <p:inputText value="" />
+      <p:inputText value="#{timeManagedBean.time.nome}" />
       <p:outputLabel value="#{msg['pages.cadastroTime.End1']}" />
-      <p:inputText value="" id="end1" />
+      <p:inputText id="end1" value="#{timeManagedBean.time.end.end1}"/>
       <p:outputLabel value="#{msg['pages.cadastroTime.End2']}"/>
-      <p:inputText value="" id="end2"/>
+      <p:inputText id="end2" value="#{timeManagedBean.time.end.end2}"/>
       <p:outputLabel value="#{msg['pages.cadastroTime.CEP']}" />
-      <p:inputText value="" />
+      <p:inputMask mask="99999-999" value="#{timeManagedBean.time.end.CEP}"/>
       <p:outputLabel value="#{msg['pages.cadastroTime.Tel']}" />
-      <p:inputMask mask="(99)9999-9999?9"/>
+      <p:inputMask mask="(99)9999-9999?9" value="#{timeManagedBean.time.end.tel}"/>
 	  </p:panelGrid>
-	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" />
+	  <p:commandButton value="#{msg['general.confirmar']}" style="margin-top: 10px;" update="gridTime" validateClient="true" action="#{timeManagedBean.saveTime}"/>
 
 	  <p:watermark for="end1" value="#{msg['pages.cadastroTime.End1w']}"/>
 	  <p:watermark for="end2" value="#{msg['pages.cadastroTime.End2w']}"/>

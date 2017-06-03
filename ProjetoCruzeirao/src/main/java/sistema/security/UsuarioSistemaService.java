@@ -30,7 +30,7 @@ public class UsuarioSistemaService implements UserDetailsService {
 		UsuarioService usuarioService = new UsuarioService();
 				
 		//Pesquisar o usuário no banco
-		Usuario usuario = usuarioService.getByCPF(cpf);
+		Usuario usuario = usuarioService.getUsuario(cpf);
 		
 		
 		if (usuario != null) {

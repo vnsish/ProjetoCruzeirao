@@ -21,33 +21,21 @@ public class UsuarioManagedBean {
 	public void Salvar()
 	{
 		usuario.setRole(Roles.USR);
-		service.salvar(usuario);
-		
-		
-		
+		service.Salvar(usuario);
+
 		if(usuarios != null)
 			usuarios.add(usuario);
 		
 		usuario = new Usuario();
 	}
 	
-	
-
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
-
-
-
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-
-
-
+	
 	public List<Usuario> getUsuarios()
 	{
 		if(usuarios == null)

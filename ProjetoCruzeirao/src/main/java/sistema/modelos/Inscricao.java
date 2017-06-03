@@ -3,8 +3,16 @@ package sistema.modelos;
  * 2017, All rights reserved.
  *******************************************************************************/
 
-import java.util.HashSet;
+import java.util.List;
 // Start of user code (user defined imports)
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 // End of user code
 
@@ -13,17 +21,30 @@ import java.util.HashSet;
  * 
  * @author v
  */
+@Entity
 public class Inscricao
 {
 	/**
 	 * Description of the property Jogadores.
 	 */
-	private HashSet<Usuario> Jogadores = new HashSet<Usuario>();
+	@ManyToMany
+	@JoinTable(
+		      name="INSC_JOG",
+		      joinColumns= @JoinColumn(name="INSC_ID", referencedColumnName="ID"),
+		      inverseJoinColumns=@JoinColumn(name="JOG_ID", referencedColumnName="CPF")
+		      )
+	private List<Usuario> Jogadores;
 	
 	/**
 	 * Description of the property Comissao.
 	 */
-	private HashSet<Usuario> Comissao = new HashSet<Usuario>();
+	@ManyToMany
+	@JoinTable(
+		      name="INSC_COM",
+		      joinColumns= @JoinColumn(name="INSC_ID", referencedColumnName="ID"),
+		      inverseJoinColumns=@JoinColumn(name="COM_ID", referencedColumnName="CPF")
+		      )
+	private List<Usuario> Comissao;
 
 	/**
 	 * Description of the property Time.
@@ -33,13 +54,17 @@ public class Inscricao
 	/**
 	 * Description of the property Categoria.
 	 */
+	@ManyToOne
+	@JoinColumn(name="CAT_ID")
 	public Categoria Categoria = null;
 
 
 	/**
 	 * Description of the property ID.
 	 */
-	private Integer ID = Integer.valueOf(0);
+	@Id
+	@GeneratedValue
+	private Integer ID;
 
 	
 	private boolean Paga = false;
@@ -68,7 +93,7 @@ public class Inscricao
 	 * Returns Jogadores.
 	 * @return Jogadores 
 	 */
-	public HashSet<Usuario> getJogadores() {
+	public List<Usuario> getJogadores() {
 		return this.Jogadores;
 	}
 
@@ -76,7 +101,7 @@ public class Inscricao
 	 * Returns Comissao.
 	 * @return Comissao 
 	 */
-	public HashSet<Usuario> getComissao() {
+	public List<Usuario> getComissao() {
 		return this.Comissao;
 	}
 
