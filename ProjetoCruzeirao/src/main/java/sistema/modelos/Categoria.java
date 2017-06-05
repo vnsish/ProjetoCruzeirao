@@ -50,7 +50,7 @@ public class Categoria {
 	/**
 	 * Description of the property Campeonato.
 	 */
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="Camp_ID")
 	public Campeonato Campeonato = null;
 

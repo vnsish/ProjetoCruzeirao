@@ -3,6 +3,7 @@ package sistema.modelos;
  * 2017, All rights reserved.
  *******************************************************************************/
 
+import java.util.ArrayList;
 import java.util.List;
 // Start of user code (user defined imports)
 
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 
 // End of user code
@@ -27,23 +29,13 @@ public class Inscricao
 	/**
 	 * Description of the property Jogadores.
 	 */
-	@ManyToMany
-	@JoinTable(
-		      name="INSC_JOG",
-		      joinColumns= @JoinColumn(name="INSC_ID", referencedColumnName="ID"),
-		      inverseJoinColumns=@JoinColumn(name="JOG_ID", referencedColumnName="CPF")
-		      )
-	private List<Usuario> Jogadores;
+	@OneToMany(mappedBy="inscricao")
+	private List<InscricaoJogador> Jogadores;
 	
 	/**
 	 * Description of the property Comissao.
 	 */
-	@ManyToMany
-	@JoinTable(
-		      name="INSC_COM",
-		      joinColumns= @JoinColumn(name="INSC_ID", referencedColumnName="ID"),
-		      inverseJoinColumns=@JoinColumn(name="COM_ID", referencedColumnName="CPF")
-		      )
+	
 	private List<Usuario> Comissao;
 
 	/**
@@ -93,10 +85,21 @@ public class Inscricao
 	 * Returns Jogadores.
 	 * @return Jogadores 
 	 */
-	public List<Usuario> getJogadores() {
+	public List<InscricaoJogador> getJogadores() {
 		return this.Jogadores;
 	}
 
+	public void addJogador(Usuario usuario){
+		InscricaoJogador insc = new InscricaoJogador();
+		insc.setInscricao(this);
+		insc.setUsuario(usuario);
+		insc.setConfirmado(false);
+		if(this.Jogadores == null)
+			this.Jogadores = new ArrayList<>();
+		
+		Jogadores.add(insc);
+	}
+	
 	/**
 	 * Returns Comissao.
 	 * @return Comissao 
@@ -149,4 +152,10 @@ public class Inscricao
 		this.ID = newID;
 	}
 
+	public void setJogadores(List<InscricaoJogador> jogadores) {
+		Jogadores = jogadores;
+	}
+
+	
+	
 }

@@ -26,6 +26,8 @@ public class UsuarioManagedBean {
 		if(usuarios != null)
 			usuarios.add(usuario);
 		
+		System.out.println("u");
+		
 		usuario = new Usuario();
 	}
 	

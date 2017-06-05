@@ -3,6 +3,7 @@ package sistema.beans;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import sistema.modelos.Campeonato;
 import sistema.modelos.Categoria;
@@ -10,6 +11,7 @@ import sistema.service.CampService;
 import sistema.service.CatService;
 
 @ManagedBean
+@SessionScoped
 public class CategoriaBean {
 	
 	Categoria categoria;
@@ -53,8 +55,9 @@ public class CategoriaBean {
 	public void Salvar()
 	{
 		categoria.setCampeonato(campeonato);
-		
+		System.out.println("faasdf");
 		service.Salvar(categoria);
+		categoria = new Categoria();
 	}
 
 }

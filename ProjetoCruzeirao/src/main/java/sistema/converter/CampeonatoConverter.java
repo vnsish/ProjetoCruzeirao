@@ -3,11 +3,12 @@ package sistema.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
 import sistema.modelos.Campeonato;
 import sistema.service.CampService;
 
-
+@FacesConverter("converterCampeonato")
 public class CampeonatoConverter implements Converter{
 	
 	
@@ -20,7 +21,10 @@ public class CampeonatoConverter implements Converter{
 		if (value != null && !value.isEmpty()) {			
 			  for(Campeonato c : service.getCampeonatos())
 				 if(c.getNome().equals(value))
-				  	return c;			
+				 {
+					 System.out.println(c.getClass());
+				  	return c;
+				 }
 		}
 		return null;
 	}

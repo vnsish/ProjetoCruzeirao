@@ -5,7 +5,7 @@ import java.util.List;
 import sistema.dao.CatDAO;
 import sistema.modelos.Categoria;
 
-public class CatService extends Service<Categoria>{
+public class CatService{
 	
 CatDAO dao = new CatDAO();
 	

@@ -28,8 +28,10 @@ public class TimeManagedBean {
 	public void saveTime(){
 		
 		time.setDiretor(((UsuarioSistema)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsuario());
-		
+	
 		service.Salvar(time);
+	
+		time = new Time();
 		
 	}
 	

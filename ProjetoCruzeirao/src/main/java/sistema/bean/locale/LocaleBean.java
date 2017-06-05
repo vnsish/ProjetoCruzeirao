@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class LocaleBean {
 
-    private Locale locale = Locale.ENGLISH;
+    private Locale locale = new Locale("pt");
 
   
     public Locale getLocale() {

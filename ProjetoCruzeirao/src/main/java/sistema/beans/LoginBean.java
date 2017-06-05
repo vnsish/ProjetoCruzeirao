@@ -5,11 +5,14 @@ import javax.faces.bean.ManagedBean;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import sistema.modelos.Usuario;
+import sistema.service.UsuarioService;
 
 @ManagedBean
 public class LoginBean {
 	
-	public Usuario usr =  (Usuario)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	UsuarioService service = new UsuarioService();
+	
+	public String str = (String)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	
 	/*public Usuario getCurrentUser() {
 		
@@ -19,7 +22,8 @@ public class LoginBean {
 	
 	public String getUserName()
 	{
-		System.out.println(usr.getNome());
+		Usuario usr = service.getUsuario(str);
+		
 		return usr.getNome();
 	}
 

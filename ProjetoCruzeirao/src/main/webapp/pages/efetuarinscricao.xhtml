@@ -21,18 +21,19 @@
 	  <p:panelGrid columns="2">
       <p:outputLabel value="#{msg['pages.efetuarinscricao.timeselect']}" required="true" />
       <p:selectOneMenu>
-      	<p:menuitem value="Time A" />
-      	<p:menuitem value="Time B" />
+     	 <f:selectItem itemValue="#{null}" itemLabel="Selecionar">
+      	<f:selectItems value="#{inscricaoBean.times}" var="aux" itemLabel="#{aux.nome}" />
       </p:selectOneMenu>
       <p:outputLabel value="#{msg['pages.efetuarinscricao.campselect']}" required="true" />
-      <p:selectOneMenu>
-      	<p:menuitem value="Campeonato O" />
-      	<p:menuitem value="Campeonato P" />
+      <p:selectOneMenu value="#{inscricaoBean.campselect}" converter="converterCampeonato">
+      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar">
+      	<f:selectItems value="#{inscricaoBean.campeonatos}" var="aux" itemLabel="#{aux.nome}" />
+      	<f:ajax listener="#{inscricaoBean.changeCampeonato}" render="cats" />
       </p:selectOneMenu>
       <p:outputLabel value="#{msg['pages.efetuarinscricao.catselect']}" required="true" />
-      <p:selectOneMenu>
-      	<p:menuitem value="Categoria X" />
-      	<p:menuitem value="Categoria Y" />
+      <p:selectOneMenu id="cats">
+      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar">
+      	<f:selectItems value="#{inscricaoBean.categorias}" var="aux" itemLabel="#{aux.nome}" />
       </p:selectOneMenu>
       
 	  </p:panelGrid>

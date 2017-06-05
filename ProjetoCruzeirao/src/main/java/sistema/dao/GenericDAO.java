@@ -54,7 +54,7 @@ public abstract class GenericDAO <T, I extends Serializable> {
 		return getEntityManager().createQuery("select o from " + classe.getSimpleName() + " o").getResultList();
 	}
 	
-	private EntityManager getEntityManager() {
+	protected EntityManager getEntityManager() {
 		if(em == null)
 			em = emf.createEntityManager();
 		return em;

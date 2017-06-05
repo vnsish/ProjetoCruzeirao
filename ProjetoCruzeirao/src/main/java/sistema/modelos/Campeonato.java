@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,6 +26,31 @@ import javax.persistence.OneToMany;
 @Entity
 public class Campeonato {
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Campeonato other = (Campeonato) obj;
+		if (ID == null) {
+			if (other.ID != null)
+				return false;
+		} else if (!ID.equals(other.ID))
+			return false;
+		return true;
+	}
+
 	public Campeonato()
 	{
 		Categorias = new ArrayList<Categoria>();
@@ -37,8 +63,8 @@ public class Campeonato {
 	/**
 	 * Description of the property Categorias.
 	 */
-	@OneToMany(mappedBy="Campeonato")
-	public List<Categoria> Categorias;
+	@OneToMany(mappedBy="Campeonato", fetch=FetchType.EAGER)
+	public List<Categoria> Categorias = new ArrayList<Categoria>();
 
 	/**
 	 * Description of the property CadastroInicio.

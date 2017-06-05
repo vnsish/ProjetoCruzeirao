@@ -5,7 +5,7 @@ import java.util.List;
 import sistema.dao.CampDAO;
 import sistema.modelos.Campeonato;
 
-public class CampService extends Service<Campeonato>{
+public class CampService{
 	
 CampDAO dao = new CampDAO();
 	

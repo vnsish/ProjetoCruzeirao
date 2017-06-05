@@ -21,7 +21,7 @@
 	 		<p:outputLabel for="name" value="#{msg['pages.org.novocampeonato.name']}" />
 	 		<p:inputText id="name" value="#{campeonatoBean.campeonato.nome}" />
 	 		<p:outputLabel value="#{msg['pages.org.novocampeonato.inicio']}" />
-	 		<p:calendar value="#{campeonatoBean.campeona	to.dataInicio}"/>
+	 		<p:calendar value="#{campeonatoBean.campeonato.dataInicio}"/>
 	 		<p:outputLabel value="#{msg['pages.org.novocampeonato.termino']}" />
 	 		<p:calendar value="#{campeonatoBean.campeonato.dataTermino}"/>
 	 		<p:outputLabel value="#{msg['pages.org.novocampeonato.inicioC']}" />
@@ -29,7 +29,7 @@
 	 		<p:outputLabel value="#{msg['pages.org.novocampeonato.terminoC']}" />
 	 		<p:calendar value="#{campeonatoBean.campeonato.cadastroTermino}"/>
 	 		
-	 		<p:button value ="#{msg['general.confirmar']}"  update="gridCamp" validateClient="true" action="campeonatoBean.Salvar"/>
+	 		<p:commandButton value ="#{msg['general.confirmar']}"  update="gridCamp" validateClient="true" action="#{campeonatoBean.Salvar}"/>
 	 	</p:panelGrid>
 	 </h:form>
 	</ui:define>

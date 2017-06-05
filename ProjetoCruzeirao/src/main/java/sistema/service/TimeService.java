@@ -5,7 +5,7 @@ import java.util.List;
 import sistema.dao.TimeDAO;
 import sistema.modelos.Time;
 
-public class TimeService extends Service<Time>{
+public class TimeService{
 	
 TimeDAO dao = new TimeDAO();
 	
