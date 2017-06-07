@@ -22,10 +22,12 @@
 			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="${pageContext.request.contextPath}/pages/inicio.xhtml" />
 			</p:submenu>
 		
+			<sec:authorize access="isAnonymous()">
 			<p:submenu label="#{msg['pages.comuns.menuSuperior.login']}">
 				<p:menuitem value="#{msg['pages.login.menu']}" url="${pageContext.request.contextPath}/pages/login.xhtml" />
 				<p:menuitem value="#{msg['pages.cadastroUsuario.menu']}" url="${pageContext.request.contextPath}/pages/cadastroUsuario.xhtml" />
 	       </p:submenu>
+	       </sec:authorize>
 	       
 	       <p:submenu label="#{msg['pages.comuns.menuSuperior.menuUser']}" rendered="#{request.isUserInRole('USR')}">
 				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="${pageContext.request.contextPath}/pages/cadastroTime.xhtml" />

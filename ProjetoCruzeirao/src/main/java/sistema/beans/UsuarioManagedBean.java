@@ -4,9 +4,11 @@ import sistema.modelos.Roles;
 import sistema.modelos.Usuario;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.io.IOException;
 import java.util.List;
 import sistema.service.UsuarioService;
 
@@ -26,9 +28,14 @@ public class UsuarioManagedBean {
 		if(usuarios != null)
 			usuarios.add(usuario);
 		
-		System.out.println("u");
-		
 		usuario = new Usuario();
+		
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/Cruzeirao/pages/inicio.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public Usuario getUsuario() {

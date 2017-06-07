@@ -21,30 +21,29 @@
 	  <p:panelGrid columns="2">
       <p:outputLabel value="#{msg['pages.efetuarinscricao.timeselect']}" required="true" />
       <p:selectOneMenu>
-     	 <f:selectItem itemValue="#{null}" itemLabel="Selecionar">
-      	<f:selectItems value="#{inscricaoBean.times}" var="aux" itemLabel="#{aux.nome}" />
+     	 <f:selectItem itemValue="#{null}" itemLabel="Selecionar" />
+      	 <f:selectItems value="#{inscricaoBean.times}" var="aux" itemLabel="#{aux.nome}" />
       </p:selectOneMenu>
       <p:outputLabel value="#{msg['pages.efetuarinscricao.campselect']}" required="true" />
       <p:selectOneMenu value="#{inscricaoBean.campselect}" converter="converterCampeonato">
-      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar">
+      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar" />
       	<f:selectItems value="#{inscricaoBean.campeonatos}" var="aux" itemLabel="#{aux.nome}" />
       	<f:ajax listener="#{inscricaoBean.changeCampeonato}" render="cats" />
       </p:selectOneMenu>
       <p:outputLabel value="#{msg['pages.efetuarinscricao.catselect']}" required="true" />
-      <p:selectOneMenu id="cats">
-      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar">
+      <p:selectOneMenu id="cats" value="#{inscricaoBean.catselect}">
+      	<f:selectItem itemValue="#{null}" itemLabel="Selecionar" />
       	<f:selectItems value="#{inscricaoBean.categorias}" var="aux" itemLabel="#{aux.nome}" />
+      	<f:ajax listener="#{inscricaoBean.changeCategoria}" render="inscjog" />
       </p:selectOneMenu>
       
 	  </p:panelGrid>
 	  <h3><p:outputLabel value="#{msg['pages.efetuarinscricao.jogadores']}"/></h3>
-	   <p:panelGrid columns="2">
-	   	<p:outputLabel value = "CPF Jogador 1"/><p:inputMask mask="999.999.999-99"/>
-	   	<p:outputLabel value = "CPF Jogador 2"/><p:inputMask mask="999.999.999-99"/>
-	   	<p:outputLabel value = "CPF Jogador 3"/><p:inputMask mask="999.999.999-99"/>
-	   	<p:outputLabel value = "CPF Jogador 4"/><p:inputMask mask="999.999.999-99"/>
-	   	<p:outputLabel value = "CPF Jogador 5"/><p:inputMask mask="999.999.999-99"/>
-	   </p:panelGrid>
+	   <h:panelGroup id="inscjog">
+	   	 <ui:repeat value="#{inscricaoBean.cpfinsc}" varstatus="status">
+	   	 	<p:outputLabel value="Jogador #{status}"/><p:inputMask mask="999.999.999-99" value=""/>
+	   	 </ui:repeat>
+	   </h:panelGroup>
 	   <h3><p:outputLabel value="#{msg['pages.efetuarinscricao.comissao']}"/></h3>
 	   <p:panelGrid columns="2">
 	   	<p:outputLabel value = "CPF Tecnico"/><p:inputMask mask="999.999.999-99"/>

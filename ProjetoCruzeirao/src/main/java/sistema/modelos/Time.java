@@ -3,6 +3,8 @@ import java.util.HashSet;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -30,6 +32,7 @@ public class Time {
 	 * Description of the property ID.
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID = Integer.valueOf(0);
 
 	/**

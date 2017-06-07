@@ -26,9 +26,28 @@ public class InscricaoBean {
 	private TimeService tservice = new TimeService();
 	private CampService campservice = new CampService(); 
 	private Campeonato campselect = new Campeonato();
+	private Categoria catselect;
 	private List<Categoria> categorias;
+	private String[] cpfinsc;
 	
 	
+	
+	public Categoria getCatselect() {
+		return catselect;
+	}
+
+	public void setCatselect(Categoria catselect) {
+		this.catselect = catselect;
+	}
+
+	public String[] getCpfinsc() {
+		return cpfinsc;
+	}
+
+	public void setCpfinsc(String[] cpfinsc) {
+		this.cpfinsc = cpfinsc;
+	}
+
 	public Inscricao getInscricao() {
 		return inscricao;
 	}
@@ -63,16 +82,7 @@ public class InscricaoBean {
 		
 		UsuarioSistema usr = (UsuarioSistema)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		List<Time> temp = tservice.getTimes();
-		List<Time> remove = new ArrayList<Time>();
-		
-		for (Time t: temp)
-		{
-			if(t.getDiretor().getCPF() == usr.getUsername())
-				remove.add(t);
-		}
-		
-		temp.removeAll(remove);
+		List<Time> temp = tservice.getByDiretor(usr.getUsername());
 		
 		return temp;
 		
@@ -80,13 +90,22 @@ public class InscricaoBean {
 	
 	public void changeCampeonato(AjaxBehaviorEvent event)
 	{
-		categorias = campselect.getCategorias();
-		System.out.println(categorias.toString());
+		if(campselect != null)
+			categorias = campselect.getCategorias();
+		else
+			categorias = null;
+	}
+	
+	public void changeCategoria (AjaxBehaviorEvent event)
+	{
+		if(catselect != null)
+		cpfinsc = new String[catselect.getJogadoresMin()];
 	}
 	
 	public List<Campeonato> getCampeonatos()
 	{
 		return campservice.getCampeonatos();
+		
 	}
 	
 	public List<Categoria> getCategorias()

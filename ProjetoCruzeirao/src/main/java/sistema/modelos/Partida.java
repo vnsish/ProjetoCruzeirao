@@ -4,7 +4,9 @@ import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -27,7 +29,7 @@ public class Partida {
 	 * Description of the property ID.
 	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ID;
 
 	/**
@@ -76,7 +78,18 @@ public class Partida {
 	private int PlacarPenaltiB;
 	private Partida ProximaPartida;
 	
+	@OneToOne
+	@JoinColumn(name="Local_ID")
+	private Local local;
 	
+
+	public Local getLocal() {
+		return local;
+	}
+
+	public void setLocal(Local local) {
+		this.local = local;
+	}
 
 	public int getPlacarTimeA() {
 		return PlacarTimeA;
@@ -167,21 +180,6 @@ public class Partida {
 		this.DataHora = newDataHora;
 	}
 
-	/**
-	 * Returns Local.
-	 * @return Local 
-	 */
-	public String getLocal() {
-		return this.Local;
-	}
-
-	/**
-	 * Sets a value to attribute Local. 
-	 * @param newLocal 
-	 */
-	public void setLocal(String newLocal) {
-		this.Local = newLocal;
-	}
 
 	/**
 	 * Returns TimeB.

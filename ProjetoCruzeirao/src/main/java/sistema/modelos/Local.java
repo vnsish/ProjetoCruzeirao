@@ -1,12 +1,21 @@
 package sistema.modelos;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Local {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID;
+	
 	private String Nome;
 	private String End1;
 	private String End2;
-	private int Tel;
+	private String Tel;
 	public int getID() {
 		return ID;
 	}
@@ -31,10 +40,10 @@ public class Local {
 	public void setEnd2(String end2) {
 		End2 = end2;
 	}
-	public int getTel() {
+	public String getTel() {
 		return Tel;
 	}
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		Tel = tel;
 	}
 	

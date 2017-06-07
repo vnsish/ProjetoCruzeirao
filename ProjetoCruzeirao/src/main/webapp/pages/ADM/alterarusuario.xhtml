@@ -21,7 +21,7 @@
 	  
 	  <p:panelGrid columns="2">
       <p:outputLabel value="#{msg['pages.adm.altera.CPF']}" required="true" />
-      <p:inputText value="#{roleBean.cpf}" />
+      <p:inputMask mask="999.999.999-99" value="#{roleBean.cpf}" />
       <p:outputLabel value="#{msg['pages.adm.altera.Permissoes']}" required="true" />
       <p:selectOneMenu value="#{roleBean.role}">
       <f:selectItems value="#{roleBean.getRoles()}" />

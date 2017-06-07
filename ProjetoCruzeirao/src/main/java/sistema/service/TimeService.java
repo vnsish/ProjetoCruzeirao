@@ -43,6 +43,12 @@ TimeDAO dao = new TimeDAO();
 		return lista;
 	}
 	
+	public List<Time> getByDiretor(String cpf)
+	{
+		return dao.getByDiretor(cpf);
+		
+	}
+	
 	
 
 }

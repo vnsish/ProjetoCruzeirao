@@ -9,6 +9,7 @@
 		<class>sistema.modelos.Inscricao</class>
 		<class>sistema.modelos.Partida</class>
 		<class>sistema.modelos.InscricaoJogador</class>
+		<class>sistema.modelos.Local</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/DBCruzeirao;create=true"/>
 			<property name="javax.persistence.jdbc.user" value="app"/>

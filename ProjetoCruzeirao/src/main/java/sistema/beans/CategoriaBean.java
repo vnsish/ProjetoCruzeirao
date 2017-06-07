@@ -1,9 +1,11 @@
 package sistema.beans;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import sistema.modelos.Campeonato;
 import sistema.modelos.Categoria;
@@ -55,9 +57,15 @@ public class CategoriaBean {
 	public void Salvar()
 	{
 		categoria.setCampeonato(campeonato);
-		System.out.println("faasdf");
 		service.Salvar(categoria);
 		categoria = new Categoria();
+		
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/Cruzeirao/pages/inicio.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

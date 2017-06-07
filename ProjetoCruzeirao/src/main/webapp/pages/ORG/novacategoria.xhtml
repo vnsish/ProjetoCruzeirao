@@ -22,11 +22,6 @@
 	 		<p:selectOneMenu value="#{categoriaBean.campeonato}" converter="converterCampeonato">
 	 			<f:selectItems value="#{categoriaBean.campeonatos}" var="aux" itemLabel="#{aux.nome}" />
 	 		</p:selectOneMenu>
-	 		<p:outputLabel value="#{msg['pages.org.novacategoria.genero']}" />
-	 		<!-- <p:selectOneRadio id = "selectgenero">
-	 			<f:selectItem itemLabel = "Masculino" />
-	 			<f:selectItem itemLabel = "Feminino" />
-	 		</p:selectOneRadio> --> 
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.name']}" />
 	 		<p:inputText value="#{categoriaBean.categoria.nome}"/>
 	 		<p:outputLabel value="#{msg['pages.org.novacategoria.idade']}" />

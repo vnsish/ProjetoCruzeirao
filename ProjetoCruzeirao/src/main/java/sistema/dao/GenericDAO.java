@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 public abstract class GenericDAO <T, I extends Serializable> {
 
 	private static EntityManagerFactory emf;
-	private EntityManager em;
+	protected EntityManager em;
 	
 	public GenericDAO(){
 		

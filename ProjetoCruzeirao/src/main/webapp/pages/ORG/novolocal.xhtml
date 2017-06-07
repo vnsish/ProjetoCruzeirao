@@ -13,26 +13,27 @@
 	
 
 	<ui:define name="principal">
-	<h:form id="campeonato">
+	<h:form id="local">
 	
 		<h1><p:outputLabel value="#{msg['pages.org.cadastrolocal.menu']}"/></h1>
 		
-		<p:panelGrid columns="2">
+		<p:panelGrid columns="2" id="gridLocal">
 			
 	 		<p:outputLabel value="#{msg['pages.org.cadastrolocal.name']}" />
-	 		<p:inputText value="" />
+	 		<p:inputText value="#{localBean.local.nome}" />
 	 		
 	 		<p:outputLabel  value="#{msg['pages.org.cadastrolocal.end1']}" />
-	 		<p:inputText value="" id="end1"/>
+	 		<p:inputText value="#{localBean.local.end1}" id="end1"/>
 	 		
 	 		<p:outputLabel value="#{msg['pages.org.cadastrolocal.end2']}" />
-	 		<p:inputText value="" id="end2"/>
+	 		<p:inputText value="#{localBean.local.end2}" id="end2"/>
 
-      <p:outputLabel value="#{msg['pages.org.cadastrolocal.tel']}" />
-      <p:inputMask mask="(99)9999-9999?9"/>	 		
+		    <p:outputLabel value="#{msg['pages.org.cadastrolocal.tel']}" />
+		    <p:inputMask mask="(99)9999-9999?9" value="#{localBean.local.tel}"/>	 		
 	 		
-	 		<p:button value="#{msg['general.confirmar']}"/>
 	 	</p:panelGrid>
+	 	
+	 	<p:commandButton value="#{msg['general.confirmar']}" update="gridLocal" validateClient="true" action="#{localBean.Salvar}"/>
 	 	
 	  <p:watermark for="end1" value="#{msg['pages.org.cadastrolocal.End1w']}"/>
 	  <p:watermark for="end2" value="#{msg['pages.org.cadastrolocal.End2w']}"/>
